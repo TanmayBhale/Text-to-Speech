@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text-to-speech-deployment
+  labels:
+    app: text-to-speech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: text-to-speech
+  template:
+    metadata:
+      labels:
+        app: text-to-speech
+    spec:
+      containers:
+        - name: text-to-speech
+          image: ankitnimbolkar/text-to-speech:0.0.1
+          ports:
+            - containerPort: 5501
